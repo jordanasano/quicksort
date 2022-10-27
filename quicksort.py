@@ -8,8 +8,14 @@ def quicksort(nums):
 
     pivot = nums.pop()
 
-    lesser = [num for num in nums if num <= pivot]
-    greater = [num for num in nums if num > pivot]
+    lesser = []
+    greater = []
+
+    for num in nums:
+        if pivot >= num:
+            lesser.append(num)
+        else:
+            greater.append(num)
 
     return quicksort(lesser) + [pivot] + quicksort(greater)
 
